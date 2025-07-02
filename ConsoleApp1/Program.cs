@@ -69,52 +69,83 @@
 
 #endregion
 
-#region 3
+//#region 3
 
 
-namespace SeasonExample
+//namespace SeasonExample
+//{
+//    enum Season
+//    {
+//        Spring,
+//        Summer,
+//        Autumn,
+//        Winter
+//    }
+
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Console.WriteLine("Enter a season name (Spring, Summer, Autumn, Winter):");
+//            string input = Console.ReadLine();
+
+//            // Try to parse input to enum (case-insensitive)
+//            if (Enum.TryParse(input, true, out Season selectedSeason))
+//            {
+//                // Step 2: Display month range based on season
+//                switch (selectedSeason)
+//                {
+//                    case Season.Spring:
+//                        Console.WriteLine("Spring: March to May");
+//                        break;
+//                    case Season.Summer:
+//                        Console.WriteLine("Summer: June to August");
+//                        break;
+//                    case Season.Autumn:
+//                        Console.WriteLine("Autumn: September to November");
+//                        break;
+//                    case Season.Winter:
+//                        Console.WriteLine("Winter: December to February");
+//                        break;
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("Invalid season name. Please enter one of: Spring, Summer, Autumn, Winter.");
+//            }
+
+//            Console.ReadLine();
+//        }
+//    }
+//}
+//#endregion
+
+#region 4
+
+namespace ColorCheck
 {
-    enum Season
+    enum Colors
     {
-        Spring,
-        Summer,
-        Autumn,
-        Winter
+        Red,
+        Green,
+        Blue
     }
-
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a season name (Spring, Summer, Autumn, Winter):");
+            Console.WriteLine("Enter a color name:");
             string input = Console.ReadLine();
-
-            // Try to parse input to enum (case-insensitive)
-            if (Enum.TryParse(input, true, out Season selectedSeason))
+            if (Enum.TryParse(input, true, out Colors selectedColor))
             {
-                // Step 2: Display month range based on season
-                switch (selectedSeason)
-                {
-                    case Season.Spring:
-                        Console.WriteLine("Spring: March to May");
-                        break;
-                    case Season.Summer:
-                        Console.WriteLine("Summer: June to August");
-                        break;
-                    case Season.Autumn:
-                        Console.WriteLine("Autumn: September to November");
-                        break;
-                    case Season.Winter:
-                        Console.WriteLine("Winter: December to February");
-                        break;
-                }
+                Console.WriteLine($"{selectedColor} is a primary color.");
             }
             else
             {
-                Console.WriteLine("Invalid season name. Please enter one of: Spring, Summer, Autumn, Winter.");
+                Console.WriteLine($"{input} is NOT a primary color.");
             }
 
-            Console.ReadLine();
+            Console.ReadLine(); 
         }
     }
 }
