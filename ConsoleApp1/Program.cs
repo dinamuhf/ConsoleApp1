@@ -30,41 +30,92 @@
 #region 2
 
 
-namespace StructExample
-{
-    struct Person
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
+//namespace StructExample
+//{
+//    struct Person
+//    {
+//        public string Name { get; set; }
+//        public int Age { get; set; }
 
-        public Person(string name, int age)
-        {
-            this = new Person(); 
-            Name = name;
-            Age = age;
-        }
+//        public Person(string name, int age)
+//        {
+//            this = new Person(); 
+//            Name = name;
+//            Age = age;
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            // Create and populate the array
+//            Person[] people = new Person[3];
+//            people[0] = new Person("Alice", 25);
+//            people[1] = new Person("Bob", 30);
+//            people[2] = new Person("Charlie", 22);
+
+//            // Display the details
+//            Console.WriteLine("People Information:");
+//            foreach (Person person in people)
+//            {
+//                Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+//            }
+
+//            Console.ReadLine(); // Keeps the console window open
+//        }
+//    }
+//}
+
+#endregion
+
+#region 3
+
+
+namespace SeasonExample
+{
+    enum Season
+    {
+        Spring,
+        Summer,
+        Autumn,
+        Winter
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            // Create and populate the array
-            Person[] people = new Person[3];
-            people[0] = new Person("Alice", 25);
-            people[1] = new Person("Bob", 30);
-            people[2] = new Person("Charlie", 22);
+            Console.WriteLine("Enter a season name (Spring, Summer, Autumn, Winter):");
+            string input = Console.ReadLine();
 
-            // Display the details
-            Console.WriteLine("People Information:");
-            foreach (Person person in people)
+            // Try to parse input to enum (case-insensitive)
+            if (Enum.TryParse(input, true, out Season selectedSeason))
             {
-                Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+                // Step 2: Display month range based on season
+                switch (selectedSeason)
+                {
+                    case Season.Spring:
+                        Console.WriteLine("Spring: March to May");
+                        break;
+                    case Season.Summer:
+                        Console.WriteLine("Summer: June to August");
+                        break;
+                    case Season.Autumn:
+                        Console.WriteLine("Autumn: September to November");
+                        break;
+                    case Season.Winter:
+                        Console.WriteLine("Winter: December to February");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid season name. Please enter one of: Spring, Summer, Autumn, Winter.");
             }
 
-            Console.ReadLine(); // Keeps the console window open
+            Console.ReadLine();
         }
     }
 }
-
 #endregion
